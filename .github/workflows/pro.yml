@@ -1,0 +1,15 @@
+name: GitHub Actions Build and Deploy Demo
+
+on:
+  push:
+    branches:
+      - test
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+
+      - name: Build and Deploy
+        run: curl http://127.0.0.1:7001/pull?env=test&name=firstDemo
